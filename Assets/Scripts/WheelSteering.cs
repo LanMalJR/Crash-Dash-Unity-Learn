@@ -5,6 +5,9 @@ public class WheelSteering : MonoBehaviour
     public float maxSteerAngle = 30f;
     public string inputAxis = "Horizontal";
 
+    float horizontalInput;
+    float steerAngle;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -14,8 +17,8 @@ public class WheelSteering : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontalInput = Input.GetAxis(inputAxis);
-        float steerAngle = maxSteerAngle * horizontalInput;
+        horizontalInput = Input.GetAxis(inputAxis);
+        steerAngle = maxSteerAngle * horizontalInput;
         transform.localRotation = Quaternion.Euler(0, steerAngle, 0);
     }
 }
